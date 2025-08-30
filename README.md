@@ -6,7 +6,7 @@ A cyberpunk-themed AI-powered text generation platform for content creators, fea
 
 [![Watch Demo Video](https://img.shields.io/badge/📺_Watch_Demo-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/MNKYDRt-LUU)
 
-**Live Demo:** [Watch on YouTube](https://youtu.be/5kXg4Cr8-oE)
+**Live Demo:** [Watch on YouTube](https://youtu.be/MNKYDRt-LUU)
 
 ## ✨ Features
 
@@ -338,4 +338,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Streamlit** for the excellent web framework
 - **FastAPI** for the high-performance backend framework
 - **Open Source Community** for the amazing tools and libraries
+
 
