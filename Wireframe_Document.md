@@ -7,7 +7,7 @@
 **Document Type:** UI/UX Wireframe Specifications  
 **Version:** 1.0  
 **Date:** August 30, 2025  
-**Author:** UI/UX Design Team  
+
 
 ### 2. INTRODUCTION
 
@@ -864,4 +864,5 @@ This Wireframe Document provides comprehensive UI/UX specifications for the Free
 - **Browser Compatibility:** Wide support across modern browsers
 
 The wireframes serve as a blueprint for implementation, ensuring a cohesive and engaging user experience that aligns with the technical architecture and business requirements.
+
 
