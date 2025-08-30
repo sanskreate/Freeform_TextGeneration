@@ -6,7 +6,6 @@
 **Project Name:** Freeform Text Generation for Content Creators  
 **Version:** 1.0  
 **Date:** August 30, 2025  
-**Author:** Content Generation Team  
 
 ### 2. INTRODUCTION
 
@@ -214,3 +213,4 @@ This project provides an AI-powered longform text generation platform designed s
 ### 14. CONCLUSION
 
 This high-level design provides a comprehensive framework for the Freeform Text Generation platform, ensuring scalable, maintainable, and user-friendly content creation capabilities for content creators and writers.
+
