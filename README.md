@@ -184,16 +184,6 @@ neural-text-synthesizer/
 - Ensures content meets domain requirements
 - Provides feedback on missing keywords
 
-### Running Tests
-
-```bash
-# Install test dependencies
-pip install pytest pytest-asyncio httpx
-
-# Run tests
-pytest tests/
-```
-
 ### Development Server
 
 ```bash
@@ -228,18 +218,6 @@ Generate text based on user input.
   "word_count": 487,
   "keywords_found": ["AI", "machine learning", "algorithms"],
   "status": "success"
-}
-```
-
-#### GET `/health`
-
-Check API health status.
-
-**Response:**
-```json
-{
-  "status": "healthy",
-  "timestamp": "2025-08-30T12:00:00Z"
 }
 ```
 
@@ -428,3 +406,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Streamlit** for the excellent web framework
 - **FastAPI** for the high-performance backend framework
 - **Open Source Community** for the amazing tools and libraries
+
