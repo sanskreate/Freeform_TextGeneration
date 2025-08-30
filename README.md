@@ -64,8 +64,8 @@ A cyberpunk-themed AI-powered text generation platform for content creators, fea
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/neural-text-synthesizer.git
-   cd neural-text-synthesizer
+   git clone https://github.com/yourusername/Freeform_TextGeneration.git
+   cd Freeform_TextGeneration
    ```
 
 2. **Create virtual environment**
@@ -116,13 +116,6 @@ MODEL_NAME=llama3-8b-8192
 MAX_TOKENS=2000
 TEMPERATURE=0.7
 ```
-
-### Supported Domains
-
-- **Technology**: Software, AI, Hardware, Cybersecurity
-- **Health**: Medicine, Wellness, Fitness, Mental Health
-- **Finance**: Banking, Investment, Cryptocurrency, Economics
-- **Education**: Learning, Teaching, Academic Research, E-learning
 
 ## 📝 Usage
 
@@ -241,43 +234,6 @@ The application features a distinctive cyberpunk aesthetic:
 
 ## 🚀 Deployment
 
-### Docker Deployment
-
-```dockerfile
-# Dockerfile
-FROM python:3.9-slim
-
-WORKDIR /app
-COPY requirements.txt .
-RUN pip install -r requirements.txt
-
-COPY . .
-EXPOSE 8000 8501
-
-CMD ["uvicorn", "llama_api:app", "--host", "0.0.0.0", "--port", "8000"]
-```
-
-### Docker Compose
-
-```yaml
-version: '3.8'
-services:
-  backend:
-    build: .
-    ports:
-      - "8000:8000"
-    environment:
-      - GROQ_API_KEY=${GROQ_API_KEY}
-  
-  frontend:
-    build: .
-    ports:
-      - "8501:8501"
-    command: streamlit run longform_streamlit.py --server.address 0.0.0.0
-    depends_on:
-      - backend
-```
-
 ### Production Considerations
 
 - Use environment-specific configuration
@@ -298,11 +254,6 @@ services:
 - [ ] Responsive design on different screen sizes
 - [ ] Accessibility features (keyboard navigation, screen readers)
 
-
-## 🤝 Contributing
-
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
-
 ### Development Process
 
 1. **Fork** the repository
@@ -310,14 +261,6 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 3. **Commit** your changes (`git commit -m 'Add amazing feature'`)
 4. **Push** to the branch (`git push origin feature/amazing-feature`)
 5. **Open** a Pull Request
-
-### Code Standards
-
-- Follow PEP 8 for Python code formatting
-- Add docstrings to all functions and classes
-- Include type hints where applicable
-- Write tests for new features
-- Update documentation as needed
 
 ## 📊 Performance
 
@@ -378,17 +321,6 @@ export DEBUG=1
 streamlit run longform_streamlit.py --logger.level debug
 ```
 
-## 📈 Roadmap
-
-### Version 2.0 Planned Features
-
-- [ ] **Multi-language Support**: Generate content in multiple languages
-- [ ] **Content Templates**: Pre-built templates for common use cases
-- [ ] **Advanced Styling**: More customization options for output formatting
-- [ ] **User Accounts**: Save and manage generated content
-- [ ] **API Rate Limiting**: Better quota management
-- [ ] **Analytics Dashboard**: Usage statistics and insights
-
 ### Long-term Vision
 
 - Integration with popular content management systems
@@ -406,4 +338,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Streamlit** for the excellent web framework
 - **FastAPI** for the high-performance backend framework
 - **Open Source Community** for the amazing tools and libraries
-
