@@ -8,7 +8,13 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ---
+## 🚀 Demo
 
+[![Watch Demo Video](https://img.shields.io/badge/📺_Watch_Demo-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/MNKYDRt-LUU)
+
+**Live Demo:** [Watch on YouTube](https://youtu.be/MNKYDRt-LUU)
+
+---
 ## 🌟 Overview
 
 **FreeForm Long Text Generation** is an advanced AI-powered platform that generates high-quality, long-form content (750-2000 words) with **100% guaranteed keyword enforcement**. Built with Llama 3.1-8B-Instant via Groq API, the system features an interface and delivers comprehensive content in under 5 seconds.
