@@ -1,18 +1,6 @@
 # High-Level Design (HLD) Document
 ## Freeform Text Generation for Content Creators
 
-### DOCUMENT INFORMATION
-
-**Project Name:** Freeform Text Generation for Content Creators  
-**Document Type:** High-Level Design  
-**Version:** 2.0  
-**Date:** November 6, 2025  
-**Author:** Sanskriti Rai  
-**Organization:** PW Skills (Physics Wallah Pvt. Ltd.)  
-**Mentor:** Mr. Sudhanshu
-
----
-
 ## 1. INTRODUCTION
 
 ### 1.1 Purpose
@@ -76,11 +64,11 @@ The system follows a **Three-Tier Architecture** pattern:
 │                     PRESENTATION TIER                          │
 │  ┌──────────────────────────────────────────────────────────┐  │
 │  │              Streamlit Web Interface                     │  │
-│  │  • User input forms (prompt, domain, word count)        │  │
-│  │  • Cyberpunk-themed UI with CSS styling                 │  │
-│  │  • Real-time metrics dashboard                          │  │
-│  │  • Download functionality                               │  │
-│  │  • Error handling and user feedback                     │  │
+│  │  • User input forms (prompt, domain, word count)         │  │
+│  │  • Cyberpunk-themed UI with CSS styling                  │  │
+│  │  • Real-time metrics dashboard                           │  │
+│  │  • Download functionality                                │  │
+│  │  • Error handling and user feedback                      │  │
 │  └──────────────────────────────────────────────────────────┘  │
 └────────────────────────────────────────────────────────────────┘
                               ↕ HTTP/REST
@@ -99,9 +87,9 @@ The system follows a **Three-Tier Architecture** pattern:
 ┌────────────────────────────────────────────────────────────────┐
 │                      INTEGRATION TIER                          │
 │  ┌──────────────────────────────────────────────────────────┐  │
-│  │              Groq API (Llama 3.1 Model)                 │  │
+│  │              Groq API (Llama 3.1 Model)                  │  │
 │  │  • Text generation engine                                │  │
-│  │  • 8 billion parameter model                            │  │
+│  │  • 8 billion parameter model                             │  │
 │  │  • High-speed inference                                  │  │
 │  │  • Token-based processing                                │  │
 │  └──────────────────────────────────────────────────────────┘  │
@@ -111,8 +99,8 @@ The system follows a **Three-Tier Architecture** pattern:
 │                        DATA TIER                               │
 │  ┌──────────────────────────────────────────────────────────┐  │
 │  │              JSON File Storage System                    │  │
-│  │  • generation_logs.json (individual generations)        │  │
-│  │  • final_metrics_report.json (aggregate metrics)        │  │
+│  │  • generation_logs.json (individual generations)         │  │
+│  │  • final_metrics_report.json (aggregate metrics)         │  │
 │  │  • Environment variables (.env)                          │  │
 │  └──────────────────────────────────────────────────────────┘  │
 └────────────────────────────────────────────────────────────────┘
@@ -126,28 +114,28 @@ The system follows a **Three-Tier Architecture** pattern:
 └─────────────────────────────────────────────────────────────────┘
                             ↕
 ┌─────────────────────────────────────────────────────────────────┐
-│  FRONTEND (longform_streamlit.py)                              │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐          │
-│  │ Input Forms  │  │ UI Components│  │ HTTP Client  │          │
-│  └──────────────┘  └──────────────┘  └──────────────┘          │
+│  FRONTEND (longform_streamlit.py)                               │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐           │
+│  │ Input Forms  │  │ UI Components│  │ HTTP Client  │           │
+│  └──────────────┘  └──────────────┘  └──────────────┘           │
 └─────────────────────────────────────────────────────────────────┘
                             ↕
 ┌─────────────────────────────────────────────────────────────────┐
-│  BACKEND (llama_api.py)                                        │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐          │
-│  │ FastAPI App  │  │ API Endpoints│  │Request Handler│         │
-│  └──────────────┘  └──────────────┘  └──────────────┘          │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐          │
-│  │ DCKG Module  │  │  DMK Module  │  │Groq API Client│         │
-│  └──────────────┘  └──────────────┘  └──────────────┘          │
+│  BACKEND (llama_api.py)                                         │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐           │
+│  │ FastAPI App  │  │ API Endpoints│  │Request Handler│          │
+│  └──────────────┘  └──────────────┘  └──────────────┘           │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐           │
+│  │ DCKG Module  │  │  DMK Module  │  │Groq API Client│          │
+│  └──────────────┘  └──────────────┘  └──────────────┘           │
 └─────────────────────────────────────────────────────────────────┘
                             ↕
 ┌─────────────────────────────────────────────────────────────────┐
 │  PROCESSING MODULES                                             │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐          │
-│  │   dckg.py    │  │   dmk.py     │  │test_results.py│         │
-│  │  (Keywords)  │  │(Enforcement) │  │  (Metrics)    │         │
-│  └──────────────┘  └──────────────┘  └──────────────┘          │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐           │
+│  │   dckg.py    │  │   dmk.py     │  │test_results.py│          │
+│  │  (Keywords)  │  │(Enforcement) │  │  (Metrics)    │          │
+│  └──────────────┘  └──────────────┘  └──────────────┘           │
 └─────────────────────────────────────────────────────────────────┘
                             ↕
 ┌─────────────────────────────────────────────────────────────────┐
@@ -554,7 +542,7 @@ def apply_dmk_loss(prompt: str, keywords: List[str],
    - Optional field
 
 3. **Word Count Slider**
-   - Range: 100 to 2000 words
+   - Range: 750 to 2000 words
    - Default: 750 words
    - Step: 50 words
    - Gradient track (green to pink)
@@ -684,7 +672,6 @@ def apply_dmk_loss(prompt: str, keywords: List[str],
 ## 9. PERFORMANCE CONSIDERATIONS
 
 ### 9.1 Response Time Optimization
-- **Target**: < 10 seconds
 - **Achieved**: 4.46 seconds average
 - **Strategies**:
   - Efficient keyword extraction (< 0.1s)
@@ -738,16 +725,6 @@ def apply_dmk_loss(prompt: str, keywords: List[str],
 Developer Machine
 ├── Frontend: localhost:8501 (Streamlit)
 ├── Backend: localhost:8000 (FastAPI)
-└── External: Groq API (HTTPS)
-```
-
-### 11.2 Production Deployment (Future)
-```
-Cloud Infrastructure
-├── Load Balancer
-│   ├── Frontend Instances (Auto-scaled)
-│   └── Backend Instances (Auto-scaled)
-├── Database (for persistent logging)
 └── External: Groq API (HTTPS)
 ```
 
@@ -819,24 +796,3 @@ Cloud Infrastructure
 - **Token**: Basic unit of text processing in language models
 
 ---
-
-## 15. REVISION HISTORY
-
-| Version | Date | Author | Changes |
-|---------|------|--------|---------|
-| 1.0 | Aug 30, 2025 | Initial Team | Initial HLD creation |
-| 2.0 | Nov 6, 2025 | Sanskriti Rai | Complete rewrite with current implementation |
-
----
-
-## 16. APPROVALS
-
-| Role | Name | Signature | Date |
-|------|------|-----------|------|
-| Mentor | Mr. Sudhanshu | | Nov 6, 2025 |
-| Developer | Sanskriti Rai | | Nov 6, 2025 |
-| Reviewer | | | |
-
----
-
-**END OF HIGH-LEVEL DESIGN DOCUMENT**
