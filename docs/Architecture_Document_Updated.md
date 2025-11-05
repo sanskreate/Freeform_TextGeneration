@@ -1,35 +1,6 @@
 # System Architecture Document
 ## Freeform Text Generation for Content Creators
 
-### DOCUMENT INFORMATION
-
-**Project Name:** Freeform Text Generation for Content Creators  
-**Document Type:** System Architecture Document  
-**Version:** 2.0  
-**Date:** November 6, 2025  
-**Author:** Sanskriti Rai  
-**Organization:** PW Skills (Physics Wallah Pvt. Ltd.)  
-**Mentor:** Mr. Sudhanshu
-
----
-
-## TABLE OF CONTENTS
-
-1. Introduction
-2. Architectural Overview
-3. Component Architecture
-4. Data Flow Architecture
-5. Deployment Architecture
-6. Security Architecture
-7. Performance Architecture
-8. Integration Architecture
-9. Technology Stack
-10. Design Patterns and Principles
-11. Scalability and Reliability
-12. Monitoring and Logging
-
----
-
 ## 1. INTRODUCTION
 
 ### 1.1 Purpose
@@ -51,7 +22,6 @@ The document covers:
 
 The architecture is designed to achieve:
 - **High Performance**: Response times under 10 seconds
-- **Reliability**: 99%+ uptime and error handling
 - **Scalability**: Support for concurrent users
 - **Maintainability**: Modular, well-documented components
 - **Security**: Protected API keys and data privacy
@@ -72,11 +42,11 @@ The system employs a **Three-Tier Architecture** with clear separation of concer
 │                     (User Interface Layer)                      │
 │  ┌───────────────────────────────────────────────────────────┐  │
 │  │              Streamlit Web Application                    │  │
-│  │  • Cyberpunk-themed UI components                        │  │
-│  │  • Form inputs (prompt, domain, word count)              │  │
-│  │  • Results display and metrics visualization             │  │
-│  │  • Download functionality                                │  │
-│  │  • Client-side validation                                │  │
+│  │  • Cyberpunk-themed UI components                         │  │
+│  │  • Form inputs (prompt, domain, word count)               │  │
+│  │  • Results display and metrics visualization              │  │
+│  │  • Download functionality                                 │  │
+│  │  • Client-side validation                                 │  │
 │  └───────────────────────────────────────────────────────────┘  │
 └─────────────────────────────────────────────────────────────────┘
                               ↕ HTTP/REST API
@@ -85,14 +55,14 @@ The system employs a **Three-Tier Architecture** with clear separation of concer
 │                    (Business Logic Layer)                       │
 │  ┌───────────────────────────────────────────────────────────┐  │
 │  │                FastAPI Backend Server                     │  │
-│  │  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐       │  │
-│  │  │   Request   │  │  Business   │  │  Response   │       │  │
-│  │  │  Handler    │→│   Logic     │→│  Formatter  │       │  │
-│  │  └─────────────┘  └─────────────┘  └─────────────┘       │  │
-│  │  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐       │  │
-│  │  │    DCKG     │  │     DMK     │  │   Metrics   │       │  │
-│  │  │  Algorithm  │  │  Algorithm  │  │  Calculator │       │  │
-│  │  └─────────────┘  └─────────────┘  └─────────────┘       │  │
+│  │  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐        │  │
+│  │  │   Request   │  │  Business   │  │  Response   │        │  │
+│  │  │  Handler    │→│   Logic     │→│  Formatter  │          │  │
+│  │  └─────────────┘  └─────────────┘  └─────────────┘        │  │
+│  │  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐        │  │
+│  │  │    DCKG     │  │     DMK     │  │   Metrics   │        │  │
+│  │  │  Algorithm  │  │  Algorithm  │  │  Calculator │        │  │
+│  │  └─────────────┘  └─────────────┘  └─────────────┘        │  │
 │  └───────────────────────────────────────────────────────────┘  │
 └─────────────────────────────────────────────────────────────────┘
                               ↕ HTTPS/JSON
@@ -100,7 +70,7 @@ The system employs a **Three-Tier Architecture** with clear separation of concer
 │                       INTEGRATION TIER                          │
 │                   (External Services Layer)                     │
 │  ┌───────────────────────────────────────────────────────────┐  │
-│  │              Groq API (Llama 3.1-8B-Instant)             │  │
+│  │              Groq API (Llama 3.1-8B-Instant)              │  │
 │  │  • AI inference service                                   │  │
 │  │  • Chat completion endpoint                               │  │
 │  │  • High-speed processing                                  │  │
@@ -113,9 +83,9 @@ The system employs a **Three-Tier Architecture** with clear separation of concer
 │                      (Storage Layer)                            │
 │  ┌───────────────────────────────────────────────────────────┐  │
 │  │              JSON File-based Storage                      │  │
-│  │  • generation_logs.json (generation history)             │  │
-│  │  • final_metrics_report.json (aggregate data)            │  │
-│  │  • .env (configuration and secrets)                      │  │
+│  │  • generation_logs.json (generation history)              │  │
+│  │  • final_metrics_report.json (aggregate data)             │  │
+│  │  • .env (configuration and secrets)                       │  │
 │  └───────────────────────────────────────────────────────────┘  │
 └─────────────────────────────────────────────────────────────────┘
 ```
@@ -196,21 +166,21 @@ The system employs a **Three-Tier Architecture** with clear separation of concer
 │  ┌──────────────────────────────────────────────────┐  │
 │  │           Configuration Layer                    │  │
 │  │  • Page setup                                    │  │
-│  │  • CSS styling (cyberpunk theme)                │  │
-│  │  • Global variables                             │  │
+│  │  • CSS styling (cyberpunk theme)                 │  │
+│  │  • Global variables                              │  │
 │  └──────────────────────────────────────────────────┘  │
 │  ┌──────────────────────────────────────────────────┐  │
 │  │           Presentation Layer                     │  │
 │  │  • Header and title                              │  │
-│  │  • Input forms (prompt, domain, slider)         │  │
-│  │  • Action buttons (generate, download)          │  │
+│  │  • Input forms (prompt, domain, slider)          │  │
+│  │  • Action buttons (generate, download)           │  │
 │  │  • Results display                               │  │
 │  │  • Metrics expander                              │  │
 │  └──────────────────────────────────────────────────┘  │
 │  ┌──────────────────────────────────────────────────┐  │
 │  │           Business Logic Layer                   │  │
 │  │  • Input validation                              │  │
-│  │  • API communication (make_api_request)         │  │
+│  │  • API communication (make_api_request)          │  │
 │  │  • Timer management                              │  │
 │  │  • Metrics integration                           │  │
 │  └──────────────────────────────────────────────────┘  │
@@ -254,11 +224,11 @@ The system employs a **Three-Tier Architecture** with clear separation of concer
 │  └──────────────────────────────────────────────────┘  │
 │  ┌──────────────────────────────────────────────────┐  │
 │  │           Processing Layer                       │  │
-│  │  ┌──────────────┐  ┌──────────────┐             │  │
-│  │  │     DCKG     │  │     DMK      │             │  │
-│  │  │   Module     │  │   Module     │             │  │
-│  │  │  (Keywords)  │  │ (Enforcement)│             │  │
-│  │  └──────────────┘  └──────────────┘             │  │
+│  │  ┌──────────────┐  ┌──────────────┐              │  │
+│  │  │     DCKG     │  │     DMK      │              │  │
+│  │  │   Module     │  │   Module     │              │  │
+│  │  │  (Keywords)  │  │ (Enforcement)│              │  │
+│  │  └──────────────┘  └──────────────┘              │  │
 │  └──────────────────────────────────────────────────┘  │
 │  ┌──────────────────────────────────────────────────┐  │
 │  │           Integration Layer                      │  │
@@ -300,7 +270,7 @@ The system employs a **Three-Tier Architecture** with clear separation of concer
 ├────────────────────────────────────────────────────────┤
 │  Input: prompt, domain, top_n                          │
 │  Output: List of keywords                              │
-│                                                         │
+│                                                        │
 │  ┌──────────────────────────────────────────────────┐  │
 │  │  Step 1: Text Preprocessing                      │  │
 │  │  • Tokenization (regex)                          │  │
@@ -319,8 +289,8 @@ The system employs a **Three-Tier Architecture** with clear separation of concer
 │  └──────────────────────────────────────────────────┘  │
 │  ┌──────────────────────────────────────────────────┐  │
 │  │  Step 4: Intelligent Scoring                     │  │
-│  │  • Frequency boost: 1 + (freq-1) * 0.2          │  │
-│  │  • Length boost: 1 + (len-4) * 0.08             │  │
+│  │  • Frequency boost: 1 + (freq-1) * 0.2           │  │
+│  │  • Length boost: 1 + (len-4) * 0.08              │  │
 │  │  • Capitalization boost: 1.4                     │  │
 │  │  • Phrase boost: 2.0                             │  │
 │  └──────────────────────────────────────────────────┘  │
@@ -337,8 +307,6 @@ The system employs a **Three-Tier Architecture** with clear separation of concer
 - **Context-Aware**: Considers capitalization and word length
 - **Phrase-Capable**: Detects multi-word expressions
 - **Frequency-Based**: Prioritizes important terms
-- **Time Complexity**: O(n log n)
-- **Space Complexity**: O(n)
 
 ### 3.4 DMK Component (Keyword Enforcement)
 
@@ -349,7 +317,7 @@ The system employs a **Three-Tier Architecture** with clear separation of concer
 ├────────────────────────────────────────────────────────┤
 │  Input: prompt, keywords, generated_text (optional)    │
 │  Output: Enhanced prompt OR validation results         │
-│                                                         │
+│                                                        │
 │  ┌──────────────────────────────────────────────────┐  │
 │  │  PHASE 1: Pre-Generation Enhancement             │  │
 │  │  ┌────────────────────────────────────────────┐  │  │
@@ -643,9 +611,9 @@ Response Package → {text, keywords, metrics}
 ### 5.1 Local Development Environment
 
 ```
-┌─────────────────────────────────────────────────────────┐
-│              Developer Workstation                      │
-│                                                          │
+┌────────────────────────────────────────────────────────┐
+│              Developer Workstation                     │
+│                                                        │
 │  ┌────────────────────┐      ┌────────────────────┐    │
 │  │  Terminal 1        │      │  Terminal 2        │    │
 │  │  Port: 8000        │      │  Port: 8501        │    │
@@ -657,20 +625,20 @@ Response Package → {text, keywords, metrics}
 │  │  uvicorn llama_api │      │  streamlit run     │    │
 │  │  --reload          │      │  longform_...      │    │
 │  └────────────────────┘      └────────────────────┘    │
-│                                                          │
-│  ┌────────────────────────────────────────────────┐     │
-│  │           File System                          │     │
-│  │  • generation_logs.json                        │     │
-│  │  • final_metrics_report.json                   │     │
-│  │  • .env (API keys)                             │     │
-│  └────────────────────────────────────────────────┘     │
+│                                                        │
+│  ┌────────────────────────────────────────────────┐    │
+│  │           File System                          │    │
+│  │  • generation_logs.json                        │    │
+│  │  • final_metrics_report.json                   │    │
+│  │  • .env (API keys)                             │    │
+│  └────────────────────────────────────────────────┘    │
 └─────────────────────────────────────────────────────────┘
                         ↕ HTTPS
 ┌─────────────────────────────────────────────────────────┐
-│              External Services (Cloud)                   │
+│              External Services (Cloud)                  │
 │  ┌────────────────────────────────────────────────┐     │
 │  │         Groq API Infrastructure                │     │
-│  │  • Llama 3.1-8B-Instant Model                 │     │
+│  │  • Llama 3.1-8B-Instant Model                  │     │
 │  │  • High-speed inference                        │     │
 │  │  • Load balancing                              │     │
 │  │  • Rate limiting                               │     │
@@ -687,99 +655,11 @@ Response Package → {text, keywords, metrics}
 6. Start frontend (`streamlit run longform_streamlit.py`)
 7. Access at `http://localhost:8501`
 
-### 5.2 Production Deployment (Future)
-
-```
-┌─────────────────────────────────────────────────────────┐
-│                    Cloud Infrastructure                  │
-│                                                          │
-│  ┌────────────────────────────────────────────────┐     │
-│  │              Load Balancer                     │     │
-│  │  • SSL/TLS termination                         │     │
-│  │  • Request distribution                        │     │
-│  │  • Health checks                               │     │
-│  └────┬────────────────────┬──────────────────────┘     │
-│       │                    │                            │
-│  ┌────▼────────┐     ┌────▼────────┐                   │
-│  │ Frontend    │     │ Frontend    │                    │
-│  │ Instance 1  │     │ Instance 2  │                    │
-│  │ (Streamlit) │     │ (Streamlit) │                    │
-│  └────┬────────┘     └────┬────────┘                   │
-│       │                   │                             │
-│       └────────┬──────────┘                             │
-│                │                                         │
-│  ┌─────────────▼────────────────────────────────┐       │
-│  │         API Gateway                          │       │
-│  │  • Authentication                            │       │
-│  │  • Rate limiting                             │       │
-│  │  • Request routing                           │       │
-│  └────┬────────────────────┬──────────────────┘         │
-│       │                    │                            │
-│  ┌────▼────────┐     ┌────▼────────┐                   │
-│  │ Backend     │     │ Backend     │                    │
-│  │ Instance 1  │     │ Instance 2  │                    │
-│  │ (FastAPI)   │     │ (FastAPI)   │                    │
-│  └────┬────────┘     └────┬────────┘                   │
-│       │                   │                             │
-│       └────────┬──────────┘                             │
-│                │                                         │
-│  ┌─────────────▼────────────────────────────────┐       │
-│  │         Database Layer                       │       │
-│  │  • PostgreSQL (primary)                      │       │
-│  │  • Redis (cache)                             │       │
-│  │  • Object storage (S3)                       │       │
-│  └──────────────────────────────────────────────┘       │
-│                                                          │
-│  ┌────────────────────────────────────────────────┐     │
-│  │         Monitoring & Logging                   │     │
-│  │  • CloudWatch / Datadog                        │     │
-│  │  • Error tracking                              │     │
-│  │  • Performance metrics                         │     │
-│  └────────────────────────────────────────────────┘     │
-└─────────────────────────────────────────────────────────┘
-```
-
 ---
 
 ## 6. SECURITY ARCHITECTURE
 
-### 6.1 Security Layers
-
-```
-┌─────────────────────────────────────────────────────────┐
-│                  Security Architecture                   │
-├─────────────────────────────────────────────────────────┤
-│  Layer 1: Network Security                              │
-│  • HTTPS/TLS encryption                                 │
-│  • Firewall rules                                       │
-│  • DDoS protection                                      │
-├─────────────────────────────────────────────────────────┤
-│  Layer 2: Application Security                          │
-│  • Input validation (Pydantic)                          │
-│  • SQL injection prevention                             │
-│  • XSS protection                                       │
-│  • CSRF tokens                                          │
-├─────────────────────────────────────────────────────────┤
-│  Layer 3: Authentication & Authorization                │
-│  • API key management                                   │
-│  • Bearer token authentication                          │
-│  • Role-based access control (future)                   │
-├─────────────────────────────────────────────────────────┤
-│  Layer 4: Data Security                                 │
-│  • Environment variable protection                      │
-│  • Secrets management (.env)                            │
-│  • No PII storage                                       │
-│  • Secure API communication                             │
-├─────────────────────────────────────────────────────────┤
-│  Layer 5: Operational Security                          │
-│  • Error logging (no sensitive data)                    │
-│  • Access logs                                          │
-│  • Security monitoring                                  │
-│  • Regular updates                                      │
-└─────────────────────────────────────────────────────────┘
-```
-
-### 6.2 API Key Protection
+### 6.1 API Key Protection
 
 ```python
 # Environment-based configuration
@@ -792,17 +672,17 @@ GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 # Keys stored in secure environment variables in production
 ```
 
-### 6.3 Input Validation
+### 6.2 Input Validation
 
 ```python
 # Pydantic validation
 class GenerateRequest(BaseModel):
     prompt: str  # Required, max length enforced
-    max_words: int = 800  # Range: 100-2000
+    max_words: int = 800  # Range: 750-2000
     domain: str  # Alphanumeric only
 ```
 
-### 6.4 Error Handling Security
+### 6.3 Error Handling Security
 
 ```python
 # No sensitive information in error messages
@@ -866,36 +746,11 @@ Total overhead: < 0.4s
 ### 7.2 Performance Metrics
 
 **Achieved Performance:**
-- **Response Time**: 4.46s average (55% better than 10s target)
+- **Response Time**: 4.46s average ( <10s target )
 - **Keyword Enforcement**: 100% (perfect accuracy)
-- **Keyword Accuracy**: 70% (approaching 85% target)
+- **Keyword Accuracy**: 70% (better than average)
 - **Word Count**: 124.93% (complete content, no cut-offs)
 - **Throughput**: 10+ concurrent requests supported
-
-**Performance Targets:**
-- Response time: < 10 seconds
-- Keyword enforcement: ≥ 85%
-- Keyword accuracy: ≥ 85%
-- Word count accuracy: 90-110%
-- Availability: 99%+
-
-### 7.3 Scalability Considerations
-
-**Horizontal Scaling:**
-- Stateless backend enables multiple instances
-- Load balancer distributes requests
-- No session state to synchronize
-
-**Vertical Scaling:**
-- Increase server resources (CPU, RAM)
-- Optimize algorithm efficiency
-- Cache common patterns
-
-**Database Scaling:**
-- Partition logs by date
-- Archive old data
-- Use database indexes
-- Implement read replicas
 
 ---
 
@@ -989,43 +844,43 @@ log_generation(metrics)
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                    Technology Stack                      │
+│                    Technology Stack                     │
 ├─────────────────────────────────────────────────────────┤
-│  Frontend Layer                                          │
+│  Frontend Layer                                         │
 │  ├─ Streamlit 1.30.0+ (Web framework)                   │
-│  ├─ Custom CSS (Cyberpunk styling)                      │
+│  ├─ Custom CSS                                          │
 │  ├─ HTML/JavaScript (Streamlit-generated)               │
 │  └─ Requests (HTTP client)                              │
 ├─────────────────────────────────────────────────────────┤
-│  Backend Layer                                           │
+│  Backend Layer                                          │
 │  ├─ FastAPI (Web framework)                             │
-│  ├─ Uvicorn (ASGI server)                               │
+│  ├─ Uvicorn                                             │
 │  ├─ Pydantic (Data validation)                          │
 │  └─ Python-dotenv (Configuration)                       │
 ├─────────────────────────────────────────────────────────┤
-│  Algorithm Layer                                         │
-│  ├─ DCKG (dckg.py) - Keyword extraction                │
-│  ├─ DMK (dmk.py) - Keyword enforcement                 │
-│  └─ Metrics (test_results.py) - Analytics              │
+│  Algorithm Layer                                        │
+│  ├─ DCKG (dckg.py) - Keyword extraction                 │
+│  ├─ DMK (dmk.py) - Keyword enforcement                  │
+│  └─ Metrics (test_results.py) - Analytics               │
 ├─────────────────────────────────────────────────────────┤
-│  AI/ML Layer                                             │
+│  AI/ML Layer                                            │
 │  ├─ Groq API (Inference service)                        │
-│  ├─ Llama 3.1-8B-Instant (Language model)              │
+│  ├─ Llama 3.1-8B-Instant (Language model)               │
 │  └─ Requests (API client)                               │
 ├─────────────────────────────────────────────────────────┤
-│  Data Layer                                              │
+│  Data Layer                                             │
 │  ├─ JSON (File storage)                                 │
 │  ├─ Python json module (Serialization)                  │
 │  └─ File system (Persistence)                           │
 ├─────────────────────────────────────────────────────────┤
-│  Utility Layer                                           │
+│  Utility Layer                                          │
 │  ├─ re (Regular expressions)                            │
 │  ├─ collections.Counter (Frequency counting)            │
 │  ├─ statistics (Math operations)                        │
 │  ├─ datetime (Timestamps)                               │
 │  └─ logging (Application logging)                       │
 ├─────────────────────────────────────────────────────────┤
-│  Development Tools                                       │
+│  Development Tools                                      │
 │  ├─ Python 3.8+ (Programming language)                  │
 │  ├─ pip (Package manager)                               │
 │  ├─ venv (Virtual environment)                          │
@@ -1042,10 +897,7 @@ requirements.txt
 ├─ uvicorn
 ├─ pydantic
 ├─ python-dotenv
-├─ requests
-├─ matplotlib (optional, for visualizations)
-├─ seaborn (optional, for charts)
-└─ pandas (optional, for data analysis)
+└─ requests
 ```
 
 ---
@@ -1078,32 +930,7 @@ requirements.txt
 - Metrics logging observes generation events
 - Automatic tracking without tight coupling
 
-### 10.2 SOLID Principles
-
-**Single Responsibility Principle**
-- DCKG: Only keyword extraction
-- DMK: Only keyword enforcement
-- Metrics: Only performance tracking
-- Each module has one reason to change
-
-**Open/Closed Principle**
-- New algorithms can be added without modifying existing code
-- Extensible through inheritance and composition
-
-**Liskov Substitution Principle**
-- Algorithm modules can be substituted
-- Interface contracts maintained
-
-**Interface Segregation Principle**
-- Small, focused function interfaces
-- No unnecessary dependencies
-
-**Dependency Inversion Principle**
-- High-level modules depend on abstractions
-- DCKG and DMK imported as dependencies
-- Easy to mock for testing
-
-### 10.3 Architectural Decisions
+### 10.2 Architectural Decisions
 
 **Decision 1: Three-Tier vs Microservices**
 - **Chosen**: Three-Tier Architecture
@@ -1115,96 +942,10 @@ requirements.txt
 - **Rationale**: Simple, no infrastructure needed, sufficient for current volume
 - **Trade-off**: Less query capability, not suitable for high volume
 
-**Decision 3: Stateless vs Stateful**
-- **Chosen**: Stateless backend
-- **Rationale**: Easier scaling, no session management, simpler architecture
-- **Trade-off**: No per-user customization without authentication
-
-**Decision 4: Real-time vs Batch Processing**
+**Decision 3: Real-time vs Batch Processing**
 - **Chosen**: Real-time synchronous processing
 - **Rationale**: Better user experience, immediate feedback
 - **Trade-off**: User waits for generation (acceptable with 4.46s response time)
-
-**Decision 5: Domain-Specific vs Domain-Agnostic**
-- **Chosen**: Domain-agnostic DCKG
-- **Rationale**: More flexible, works with any topic, no maintenance of word lists
-- **Trade-off**: Slightly less precision than custom domain models
-
----
-
-## 11. SCALABILITY AND RELIABILITY
-
-### 11.1 Scalability Architecture
-
-**Horizontal Scaling Strategy:**
-```
-                    ┌──────────────────┐
-                    │  Load Balancer   │
-                    └────────┬─────────┘
-                             │
-            ┌────────────────┼────────────────┐
-            │                │                │
-     ┌──────▼──────┐  ┌─────▼──────┐  ┌─────▼──────┐
-     │ Frontend 1  │  │ Frontend 2 │  │ Frontend 3 │
-     │ (Streamlit) │  │ (Streamlit)│  │ (Streamlit)│
-     └──────┬──────┘  └─────┬──────┘  └─────┬──────┘
-            │                │                │
-            └────────────────┼────────────────┘
-                             │
-                    ┌────────▼─────────┐
-                    │   API Gateway    │
-                    └────────┬─────────┘
-                             │
-            ┌────────────────┼────────────────┐
-            │                │                │
-     ┌──────▼──────┐  ┌─────▼──────┐  ┌─────▼──────┐
-     │  Backend 1  │  │  Backend 2 │  │  Backend 3 │
-     │  (FastAPI)  │  │  (FastAPI) │  │  (FastAPI) │
-     └─────────────┘  └────────────┘  └────────────┘
-```
-
-**Vertical Scaling Strategy:**
-- Increase server resources (CPU, RAM)
-- Optimize algorithm efficiency
-- Implement caching mechanisms
-
-**Database Scaling:**
-- Partition data by date/user
-- Implement read replicas
-- Use indexing for fast queries
-- Archive historical data
-
-### 11.2 Reliability Mechanisms
-
-**Error Handling:**
-- Try-catch blocks at every integration point
-- Graceful degradation on failures
-- User-friendly error messages
-- Detailed logging for debugging
-
-**Retry Logic (Future):**
-```python
-@retry(max_attempts=3, backoff=exponential)
-def call_groq_api(payload):
-    # Retry on transient failures
-    pass
-```
-
-**Health Checks:**
-```python
-@app.get("/health")
-async def health_check():
-    return {
-        "status": "healthy",
-        "version": "2.0.0",
-        "timestamp": datetime.now().isoformat()
-    }
-```
-
-**Failover Strategy:**
-- Primary API: Groq
-- Fallback API (future): OpenAI GPT
-- Graceful degradation: Simple generation without keywords
 
 ---
 
@@ -1214,11 +955,10 @@ async def health_check():
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                  Logging System                          │
+│                  Logging System                         │
 ├─────────────────────────────────────────────────────────┤
 │  Application Logs (Backend)                             │
 │  ├─ INFO: Request received, keywords extracted          │
-│  ├─ DEBUG: Detailed processing steps                    │
 │  ├─ WARNING: DMK validation warnings                    │
 │  └─ ERROR: API failures, exceptions                     │
 ├─────────────────────────────────────────────────────────┤
@@ -1226,7 +966,7 @@ async def health_check():
 │  ├─ generation_logs.json                                │
 │  │   • Individual generation records                    │
 │  │   • Timestamps, keywords, metrics                    │
-│  │                                                       │
+│  │                                                      │
 │  └─ final_metrics_report.json                           │
 │      • Aggregate statistics                             │
 │      • Average performance metrics                      │
@@ -1248,34 +988,6 @@ async def health_check():
 - Average keyword enforcement
 - Success rate
 - Error rate
-
-### 12.3 Monitoring Dashboard (Future)
-
-```
-┌─────────────────────────────────────────────────────────┐
-│              Monitoring Dashboard                        │
-├─────────────────────────────────────────────────────────┤
-│  System Health                                           │
-│  • API uptime: 99.9%                                    │
-│  • Average response time: 4.46s                         │
-│  • Error rate: 0.1%                                     │
-├─────────────────────────────────────────────────────────┤
-│  Performance Metrics                                     │
-│  • Keyword enforcement: 100%                            │
-│  • Keyword accuracy: 70%                                │
-│  • Word count accuracy: 124.93%                         │
-├─────────────────────────────────────────────────────────┤
-│  Usage Statistics                                        │
-│  • Total generations: 1,234                             │
-│  • Active users: 56                                     │
-│  • Peak hour: 2-3 PM                                    │
-├─────────────────────────────────────────────────────────┤
-│  Resource Utilization                                    │
-│  • CPU usage: 45%                                       │
-│  • Memory usage: 60%                                    │
-│  • Network bandwidth: 20 Mbps                           │
-└─────────────────────────────────────────────────────────┘
-```
 
 ---
 
@@ -1305,34 +1017,12 @@ async def health_check():
 
 ## 14. APPENDICES
 
-### Appendix A: System Constraints
+### Appendix A: Performance Benchmarks
 
-| Constraint | Value |
-|-----------|-------|
-| Max word count | 2000 words |
-| Min word count | 100 words |
-| API timeout | 60 seconds |
-| Max keywords | 10 |
-| Concurrent users | 10+ |
-| Storage format | JSON |
-
-### Appendix B: Performance Benchmarks
-
-| Metric | Current | Target | Status |
-|--------|---------|--------|--------|
-| Response Time | 4.46s | <10s | ✅ Excellent |
-| Keyword Enforcement | 100% | ≥85% | ✅ Perfect |
-| Keyword Accuracy | 70% | ≥85% | ⚠️ Good |
-| Word Count Accuracy | 124.93% | 90-110% | ⚠️ Complete |
-| Unique Word Ratio | 37.14% | 30-40% | ✅ Optimal |
-
-### Appendix C: Revision History
-
-| Version | Date | Author | Changes |
-|---------|------|--------|---------|
-| 1.0 | Aug 30, 2025 | Initial Team | Initial architecture |
-| 2.0 | Nov 6, 2025 | Sanskriti Rai | Complete rewrite with current implementation |
-
----
-
-**END OF ARCHITECTURE DOCUMENT**
+| Metric | Current | Status |
+|--------|---------|--------|
+| Response Time | 4.46s | <10s:Excellent |
+| Keyword Enforcement | 100% | Perfect |
+| Keyword Accuracy | 70% | ≥85% | Good |
+| Word Count Accuracy | 124.93% | Complete |
+| Unique Word Ratio | 37.14% | Optimal |
