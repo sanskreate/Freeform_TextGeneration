@@ -150,7 +150,7 @@
 ### Current Performance (Based on 3 Test Generations)
 
 | Metric | Value | Status |
-|--------|-------|--------|--------|
+|--------|--------|--------|
 | **Average Response Time** | 4.46s | <10s |
 | **Keyword Accuracy (DCKG)** | 70.0% | Better than Average |
 | **Keyword Enforcement (DMK)** | 100.0% | Perfect |
