@@ -1,18 +1,6 @@
 # Low-Level Design (LLD) Document
 ## Freeform Text Generation for Content Creators
 
-### DOCUMENT INFORMATION
-
-**Project Name:** Freeform Text Generation for Content Creators  
-**Document Type:** Low-Level Design  
-**Version:** 2.0  
-**Date:** November 6, 2025  
-**Author:** Sanskriti Rai  
-**Organization:** PW Skills (Physics Wallah Pvt. Ltd.)  
-**Mentor:** Mr. Sudhanshu
-
----
-
 ## 1. INTRODUCTION
 
 ### 1.1 Purpose
@@ -1439,14 +1427,3 @@ async def health_check():
 | `generate()` | llama_api.py | Main API endpoint handler |
 
 ---
-
-## 9. REVISION HISTORY
-
-| Version | Date | Author | Changes |
-|---------|------|--------|---------|
-| 1.0 | Aug 30, 2025 | Initial Team | Initial LLD creation |
-| 2.0 | Nov 6, 2025 | Sanskriti Rai | Complete rewrite with current implementation details |
-
----
-
-**END OF LOW-LEVEL DESIGN DOCUMENT**
