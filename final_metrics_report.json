@@ -1,0 +1,35 @@
+{
+  "total_generations": 3,
+  "avg_response_time": 4.46,
+  "avg_keyword_accuracy": 70.0,
+  "avg_keyword_enforcement": 100.0,
+  "avg_word_count_accuracy": 124.93,
+  "avg_unique_word_ratio": 37.14,
+  "all_values": {
+    "response_times": [
+      4.69,
+      4.35,
+      4.35
+    ],
+    "keyword_accuracy": [
+      70.0,
+      70.0,
+      70.0
+    ],
+    "keyword_enforcement": [
+      100.0,
+      100.0,
+      100.0
+    ],
+    "word_count_accuracy": [
+      129.6,
+      127.47,
+      117.73
+    ],
+    "unique_word_ratio": [
+      35.49,
+      36.19,
+      39.75
+    ]
+  }
+}
