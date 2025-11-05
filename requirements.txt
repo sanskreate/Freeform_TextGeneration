@@ -4,3 +4,5 @@ python-dotenv
 requests 
 uvicorn
 pydantic
+pandas
+dotenvstreamlit>=1.30.0
