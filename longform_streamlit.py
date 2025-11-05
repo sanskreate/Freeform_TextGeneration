@@ -1,6 +1,9 @@
 import streamlit as st
 import time
 import requests
+import json
+import os
+from test_results import analyze_generation, log_generation
 
 st.set_page_config(
     page_title="Freeform Text Generation for Content Creators",
@@ -157,7 +160,6 @@ st.markdown(
         border-radius: 12px !important;
         box-shadow: 0 0 16px #ff004044, 0 0 8px #ff00cc44 !important;
         text-shadow: 0 0 2px #ff0040 !important;
-        font-family: 'Orbitron', 'Share Tech Mono', 'Inter', 'Segoe UI', 'Roboto', 'Arial', sans-serif !important;
     }
     h1 {
         font-size: 2.8rem;
@@ -182,6 +184,17 @@ st.markdown(
 
 st.markdown("<h1>Freeform Text Generation for Content Creators</h1>", unsafe_allow_html=True)
 
+# quick count of existing generations
+try:
+    if os.path.exists("generation_logs.json"):
+        with open("generation_logs.json", 'r', encoding='utf-8') as f:
+            logs = json.load(f)
+            num_generations = len(logs)
+    else:
+        num_generations = 0
+except Exception:
+    num_generations = 0
+
 prompt = st.text_area("Enter your prompt for longform text:", height=180)
 domain = st.text_input("Enter domain (e.g. education, marketing, technology, etc.):")
 word_count = st.slider("Desired word count:", min_value=750, max_value=2000, value=750, step=50)
@@ -189,12 +202,13 @@ word_count = st.slider("Desired word count:", min_value=750, max_value=2000, val
 API_URL = "http://localhost:8000/generate"
 
 if st.button("Generate", help="Generate longform text using your context and domain"):
-    time.sleep(60)  # Small delay for UX
     if not prompt.strip():
         st.warning("Please enter a prompt.")
     else:
         with st.spinner("Generating text..."):
             try:
+                start_time = time.time()
+                
                 response = requests.post(
                     API_URL,
                     json={
@@ -203,8 +217,22 @@ if st.button("Generate", help="Generate longform text using your context and dom
                         "domain": domain
                     }
                 )
+                
+                response_time = time.time() - start_time
+                
                 if response.status_code == 200:
                     long_text = response.json().get("text", "")
+                    
+                    analysis = analyze_generation(
+                        prompt=prompt,
+                        generated_text=long_text,
+                        response_time_s=response_time,
+                        requested_words=word_count
+                    )
+
+                    log_generation(analysis)
+
+                    actual_words = len(long_text.split())
                     st.markdown(f"""
                     <div style='
                         background: linear-gradient(90deg, #0f2027 0%, #23272f 100%);
@@ -219,10 +247,42 @@ if st.button("Generate", help="Generate longform text using your context and dom
                         letter-spacing: 0.5px;
                         font-size: 1.18rem;
                     '>
-                        ✅ Generated {len(long_text.split())} words.
+                        ✅ Generated {actual_words} words in {response_time:.2f}s 
+                        | Keyword Match: {analysis['keyword_enforcement%']:.1f}% 
+                        | Unique Words: {analysis['length_metrics']['unique%']:.1f}%
                     </div>
                     """, unsafe_allow_html=True)
+                    
+                    # Display generated text
                     st.markdown(f"<div style='font-size:1.25rem;line-height:1.8;background:linear-gradient(90deg, #0f2027 0%, #23272f 100%);padding:1.5em 1.2em;border-radius:14px;border:1px solid #39ff14;color:#39ff14;margin-top:1em;box-shadow:0 0 16px #39ff1444, 0 0 8px #ff00cc44;text-shadow:0 0 2px #39ff14'>{long_text}</div>", unsafe_allow_html=True)
+                    
+                    with st.expander("📊 View Detailed Metrics"):
+                        col1, col2, col3 = st.columns(3)
+                        
+                        with col1:
+                            st.metric("Response Time", f"{response_time:.2f}s", 
+                                     delta="Target: <10s", delta_color="normal")
+                            st.metric("Requested Words", word_count)
+                            st.metric("Actual Words", actual_words)
+                        
+                        with col2:
+                            st.metric("Keyword Accuracy", f"{analysis['keyword_accuracy%']:.1f}%",
+                                     delta="Target: >85%", delta_color="normal")
+                            st.metric("Keyword Enforcement", f"{analysis['keyword_enforcement%']:.1f}%",
+                                     delta="Target: >85%", delta_color="normal")
+                            st.metric("Word Count Accuracy", f"{analysis['length_metrics']['accuracy%']:.1f}%")
+                        
+                        with col3:
+                            st.metric("Total Words", analysis['length_metrics']['actual'])
+                            st.metric("Unique Words", int(analysis['length_metrics']['actual'] * analysis['length_metrics']['unique%'] / 100))
+                            st.metric("Unique Word Ratio", f"{analysis['length_metrics']['unique%']:.1f}%")
+                        
+                        st.write("**Extracted Keywords from Prompt:**")
+                        st.write(", ".join(analysis['prompt_keywords'][:10]))
+                        
+                        st.write("**Keywords Found in Generated Text:**")
+                        st.write(", ".join(analysis['generated_keywords'][:10]))
+
                     st.download_button("Download text", long_text, file_name="longform.txt")
                 else:
                     st.error(f"API Error: {response.status_code} - {response.text}")
