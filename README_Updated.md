@@ -11,12 +11,12 @@
 
 ## 🌟 Overview
 
-**FreeForm Long Text Generation** is an advanced AI-powered platform that generates high-quality, long-form content (750-2000 words) with **100% guaranteed keyword enforcement**. Built with Llama 3.1-8B-Instant via Groq API, the system features a cyberpunk-themed interface and delivers comprehensive content in under 5 seconds.
+**FreeForm Long Text Generation** is an advanced AI-powered platform that generates high-quality, long-form content (750-2000 words) with **100% guaranteed keyword enforcement**. Built with Llama 3.1-8B-Instant via Groq API, the system features an interface and delivers comprehensive content in under 5 seconds.
 
 ### Why FreeForm?
 
 ✅ **Perfect Keyword Enforcement** - 100% guarantee your keywords appear  
-✅ **Blazing Fast** - Average 4.46s response time (55% better than target)  
+✅ **Blazing Fast** - Average 4.46s response time (less than <10s )  
 ✅ **Domain-Agnostic** - Works across any topic without configuration  
 ✅ **Complete Content** - Zero sentence cut-offs, always complete thoughts  
 ✅ **Real-time Metrics** - Comprehensive quality tracking built-in   
