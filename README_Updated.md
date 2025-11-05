@@ -9,27 +9,6 @@
 
 ---
 
-## 📖 Table of Contents
-
-- [Overview](#-overview)
-- [Key Features](#-key-features)
-- [System Architecture](#-system-architecture)
-- [Technology Stack](#-technology-stack)
-- [Performance Metrics](#-performance-metrics)
-- [Installation](#-installation)
-- [Quick Start](#-quick-start)
-- [Usage Guide](#-usage-guide)
-- [API Documentation](#-api-documentation)
-- [Algorithms](#-algorithms)
-- [Project Structure](#-project-structure)
-- [Configuration](#-configuration)
-- [Troubleshooting](#-troubleshooting)
-- [Contributing](#-contributing)
-- [License](#-license)
-- [Acknowledgments](#-acknowledgments)
-
----
-
 ## 🌟 Overview
 
 **FreeForm Long Text Generation** is an advanced AI-powered platform that generates high-quality, long-form content (750-2000 words) with **100% guaranteed keyword enforcement**. Built with Llama 3.1-8B-Instant via Groq API, the system features a cyberpunk-themed interface and delivers comprehensive content in under 5 seconds.
@@ -40,8 +19,7 @@
 ✅ **Blazing Fast** - Average 4.46s response time (55% better than target)  
 ✅ **Domain-Agnostic** - Works across any topic without configuration  
 ✅ **Complete Content** - Zero sentence cut-offs, always complete thoughts  
-✅ **Real-time Metrics** - Comprehensive quality tracking built-in  
-✅ **Cyberpunk UI** - Engaging, futuristic interface  
+✅ **Real-time Metrics** - Comprehensive quality tracking built-in   
 
 ---
 
@@ -69,7 +47,6 @@
    - **Vocabulary Richness**: Unique word ratio (37.14% average)
 
 4. **User Experience Excellence**
-   - **Cyberpunk Theme**: Neon colors, futuristic fonts, immersive design
    - **Instant Download**: Get your content as Markdown file
    - **Expandable Metrics**: Detailed quality analysis on demand
    - **Responsive Design**: Works on desktop and mobile
@@ -85,34 +62,34 @@
 ## 🏗️ System Architecture
 
 ```
-┌─────────────────────────────────────────────────────────────┐
+┌──────────────────────────────────────────────────────────────┐
 │                    PRESENTATION LAYER                        │
 │                  (Streamlit Frontend)                        │
-│  ┌───────────────────────────────────────────────────────┐  │
-│  │  Cyberpunk UI │ Input Forms │ Metrics Display │ Download│  │
-│  └───────────────────────────────────────────────────────┘  │
-└─────────────────────────────────────────────────────────────┘
+│  ┌─────────────────────────────────────────────────────────┐ │
+│  │  Cyberpunk UI │ Input Forms │ Metrics Display │ Download│ │
+│  └─────────────────────────────────────────────────────────┘ │
+└──────────────────────────────────────────────────────────────┘
                              │
                              ▼
-┌─────────────────────────────────────────────────────────────┐
-│                   APPLICATION LAYER                          │
-│                    (FastAPI Backend)                         │
+┌───────────────────────────────────────────────────────────┐
+│                   APPLICATION LAYER                       │
+│                    (FastAPI Backend)                      │
 │  ┌─────────────┐  ┌─────────────┐  ┌──────────────────┐   │
 │  │   DCKG      │  │     DMK     │  │  Groq API        │   │
 │  │  Keyword    │→ │  Keyword    │→ │  Integration     │   │
 │  │  Extraction │  │  Enforcement│  │  (Llama 3.1)     │   │
 │  └─────────────┘  └─────────────┘  └──────────────────┘   │
-└─────────────────────────────────────────────────────────────┘
+└───────────────────────────────────────────────────────────┘
                              │
                              ▼
-┌─────────────────────────────────────────────────────────────┐
-│                      DATA LAYER                              │
-│                   (JSON Storage)                             │
+┌────────────────────────────────────────────────────────────┐
+│                      DATA LAYER                            │
+│                   (JSON Storage)                           │
 │  ┌──────────────────────┐  ┌──────────────────────────┐    │
 │  │ generation_logs.json │  │ final_metrics_report.json│    │
 │  │ (Individual Records) │  │ (Aggregate Statistics)   │    │
 │  └──────────────────────┘  └──────────────────────────┘    │
-└─────────────────────────────────────────────────────────────┘
+└────────────────────────────────────────────────────────────┘
 ```
 
 ### Data Flow
@@ -136,7 +113,6 @@
 ### Frontend
 - **Streamlit 1.30.0+** - Web application framework
 - **Requests** - HTTP client for API communication
-- **Custom CSS** - Cyberpunk styling
 
 ### Backend
 - **FastAPI** - High-performance API framework
@@ -167,13 +143,13 @@
 
 ### Current Performance (Based on 3 Test Generations)
 
-| Metric | Value | Target | Status |
+| Metric | Value | Status |
 |--------|-------|--------|--------|
-| **Average Response Time** | 4.46s | <10s | ✅ 55% better |
-| **Keyword Accuracy (DCKG)** | 70.0% | ≥85% | ⚠️ Approaching |
-| **Keyword Enforcement (DMK)** | 100.0% | ≥85% | ✅ Perfect |
-| **Word Count Accuracy** | 124.93% | 90-110% | ✅ Complete content |
-| **Unique Word Ratio** | 37.14% | 30-40% | ✅ Optimal |
+| **Average Response Time** | 4.46s | <10s |
+| **Keyword Accuracy (DCKG)** | 70.0% | Better than Average |
+| **Keyword Enforcement (DMK)** | 100.0% | Perfect |
+| **Word Count Accuracy** | 124.93% | Complete content |
+| **Unique Word Ratio** | 37.14% | Optimal |
 
 ### Response Time Breakdown
 
@@ -223,7 +199,7 @@
 #### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/freeform-text-generation.git
+git clone https://github.com/sanskreate/freeform-text-generation.git
 cd freeform-text-generation
 ```
 
@@ -340,7 +316,7 @@ http://localhost:8501
    - Helps DCKG extract relevant keywords
 
 3. **Select Word Count**
-   - Use the slider to choose: 100-2000 words
+   - Use the slider to choose: 750-2000 words
    - Default: 750 words
    - Note: Actual output may be 20-25% longer (ensures completeness)
 
@@ -451,7 +427,7 @@ Generate long-form content with keyword enforcement.
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
 | `prompt` | string | Yes | Content description (50-500 chars) |
-| `max_words` | integer | No | Target word count (100-2000, default: 800) |
+| `max_words` | integer | No | Target word count (750-2000) |
 | `domain` | string | Yes | Topic category |
 
 **Response:**
@@ -499,18 +475,6 @@ Generate long-form content with keyword enforcement.
 - `500 Internal Server Error`: API or processing error
 
 ### Example API Calls
-
-**cURL:**
-
-```bash
-curl -X POST "http://localhost:8000/generate" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "prompt": "Blockchain revolutionizes finance with decentralized trust",
-    "max_words": 750,
-    "domain": "Technology"
-  }'
-```
 
 **Python (requests):**
 
@@ -583,10 +547,6 @@ Output: keywords (list of strings)
 9. Return top N keywords
 ```
 
-**Complexity:**
-- Time: O(n log n) where n = words in prompt
-- Space: O(n)
-
 **Example:**
 
 Input:
@@ -646,10 +606,6 @@ Output: (success, missing, metrics)
    - good_context ≥ 50% of keywords
 5. Return (success, missing_list, quality_metrics)
 ```
-
-**Complexity:**
-- Time: O(k × w) where k = keywords, w = words in text
-- Space: O(k)
 
 **Example:**
 
@@ -781,17 +737,6 @@ freeform-text-generation/
 ```env
 # Groq API Configuration
 GROQ_API_KEY=your_api_key_here
-
-# Optional: Backend Configuration
-API_HOST=0.0.0.0
-API_PORT=8000
-
-# Optional: Frontend Configuration
-STREAMLIT_PORT=8501
-
-# Optional: Logging
-LOG_LEVEL=INFO
-LOG_FILE=app.log
 ```
 
 ### Application Settings
@@ -833,7 +778,6 @@ BACKGROUND = "#0a0a0a"  # Dark background
 
 # Default Values
 DEFAULT_WORD_COUNT = 750
-WORD_COUNT_MIN = 100
 WORD_COUNT_MAX = 2000
 WORD_COUNT_STEP = 50
 ```
@@ -973,74 +917,6 @@ rm final_metrics_report.json
 
 ---
 
-## 🤝 Contributing
-
-We welcome contributions! Please follow these guidelines:
-
-### How to Contribute
-
-1. **Fork the Repository**
-   ```bash
-   git clone https://github.com/yourusername/freeform-text-generation.git
-   cd freeform-text-generation
-   ```
-
-2. **Create Feature Branch**
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
-
-3. **Make Changes**
-   - Write clean, commented code
-   - Follow PEP 8 style guide
-   - Add docstrings to functions
-
-4. **Test Thoroughly**
-   - Test all affected functionality
-   - Verify metrics still calculate correctly
-   - Check both frontend and backend
-
-5. **Commit Changes**
-   ```bash
-   git add .
-   git commit -m "feat: add your feature description"
-   ```
-
-6. **Push to Fork**
-   ```bash
-   git push origin feature/your-feature-name
-   ```
-
-7. **Create Pull Request**
-   - Describe changes clearly
-   - Reference related issues
-   - Wait for review
-
-### Contribution Areas
-
-**High Priority:**
-- Improve DCKG keyword accuracy (target: 85%+)
-- Semantic keyword extraction with embeddings
-- Multi-language support
-- Database migration (PostgreSQL)
-- Unit tests and CI/CD
-
-**Medium Priority:**
-- Additional UI themes
-- Export to PDF/DOCX
-- User authentication
-- API rate limiting
-- Caching layer
-
-**Low Priority:**
-- Mobile app
-- Browser extension
-- Batch generation
-- Scheduling
-- Analytics dashboard
-
----
-
 ## 📄 License
 
 This project is licensed under the **MIT License**.
@@ -1049,123 +925,6 @@ This project is licensed under the **MIT License**.
 MIT License
 
 Copyright (c) 2025 Sanskriti Rai
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
-
----
-
-## 🙏 Acknowledgments
-
-### People
-
-- **Mr. Sudhanshu** (PW Skills) - Mentorship and guidance throughout the project
-- **Physics Wallah Pvt. Ltd.** - Internship opportunity and support
-- **Guru Gobind Singh Indraprastha University** - Academic foundation
-
-### Technologies
-
-- **Groq** - High-speed LLM inference API
-- **Meta AI** - Llama 3.1 open-source model
-- **Streamlit** - Rapid web app development framework
-- **FastAPI** - Modern Python web framework
-- **Python Community** - Extensive libraries and tools
-
-### Open Source Projects
-
-- **transformers** (Hugging Face) - NLP library inspiration
-- **langchain** - LLM application framework patterns
-- **chromadb** - Vector database concepts
-- **openai-python** - API client design patterns
-
----
-
-## 📞 Contact & Support
-
-### Author
-
-**Sanskriti Rai**  
-B.Tech in Artificial Intelligence and Data Science  
-Guru Gobind Singh Indraprastha University  
-Enrollment No.: 07919051922
-
-**Email:** [your.email@example.com](mailto:your.email@example.com)  
-**GitHub:** [@yourusername](https://github.com/yourusername)  
-**LinkedIn:** [Your LinkedIn](https://linkedin.com/in/yourprofile)
-
-### Project Links
-
-- **Repository:** [github.com/yourusername/freeform-text-generation](https://github.com/yourusername/freeform-text-generation)
-- **Issues:** [github.com/yourusername/freeform-text-generation/issues](https://github.com/yourusername/freeform-text-generation/issues)
-- **Documentation:** [docs folder](./docs/)
-
-### Getting Help
-
-1. **Check Documentation:** Review this README and docs folder
-2. **Search Issues:** Look for similar problems in GitHub Issues
-3. **Create Issue:** If problem persists, open a new issue with:
-   - Detailed description
-   - Steps to reproduce
-   - Error messages
-   - Environment details (OS, Python version)
-
----
-
-## 🗺️ Roadmap
-
-### Version 2.0 (Planned)
-
-- [ ] Semantic keyword extraction with embeddings
-- [ ] Multi-language support (Spanish, French, German)
-- [ ] PostgreSQL database migration
-- [ ] User authentication and profiles
-- [ ] Content revision and regeneration
-- [ ] Export to PDF, DOCX formats
-
-### Version 3.0 (Future)
-
-- [ ] Multi-model ensemble (GPT-4, Claude, Llama)
-- [ ] Interactive refinement workflow
-- [ ] User style personalization
-- [ ] Batch generation API
-- [ ] Analytics dashboard
-- [ ] Mobile applications
-
----
-
-## 📈 Statistics
-
-### Project Stats
-
-- **Total Lines of Code:** ~2,500
-- **Languages:** Python (100%)
-- **Files:** 10+ source files
-- **Documentation Pages:** 100+ pages
-- **Test Coverage:** In progress
-
-### Usage Stats (Since Launch)
-
-- **Total Generations:** 3
-- **Average Response Time:** 4.46s
-- **Keyword Enforcement Rate:** 100%
-- **Total Words Generated:** 2,811
-- **Unique Users:** 1
 
 ---
 
@@ -1183,21 +942,18 @@ streamlit run longform_streamlit.py
 # Install Dependencies
 pip install -r requirements.txt
 
-# Run Tests
-pytest tests/
-
 # Check Logs
 cat generation_logs.json | python -m json.tool
 ```
 
 ### Key Metrics
 
-| Metric | Current | Target |
-|--------|---------|--------|
-| Response Time | 4.46s | <10s |
-| Keyword Enforcement | 100% | ≥85% |
-| Word Count Accuracy | 124.93% | 90-110% |
-| Unique Word Ratio | 37.14% | 30-40% |
+| Metric | Current |
+|--------|---------|
+| Response Time | 4.46s |
+| Keyword Enforcement | 100% |
+| Word Count Accuracy | 124.93% |
+| Unique Word Ratio | 37.14% |
 
 ### Important URLs
 
@@ -1207,12 +963,3 @@ cat generation_logs.json | python -m json.tool
 - **Groq Console:** https://console.groq.com
 
 ---
-
-**Built with ❤️ and ☕ by Sanskriti Rai**  
-**November 2025**
-
-*Powered by Llama 3.1 • FastAPI • Streamlit*
-
----
-
-**End of README**
