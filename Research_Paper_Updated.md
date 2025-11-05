@@ -1,18 +1,5 @@
 # FreeForm Long Text Generation: An AI-Powered Platform for Domain-Specific Content Creation
 
-**An Academic Research Paper on Cyberpunk-Themed Text Generation with Intelligent Keyword Enforcement**
-
----
-
-**Author:** Sanskriti Rai  
-**Enrollment No.:** 07919051922  
-**Institution:** Guru Gobind Singh Indraprastha University  
-**Program:** B.Tech in Artificial Intelligence and Data Science  
-**Supervisor:** Mr. Sudhanshu (PW Skills)  
-**Date:** November 6, 2025
-
----
-
 ## ABSTRACT
 
 This paper presents the design, implementation, and evaluation of FreeForm Long Text Generation, an AI-powered platform that leverages advanced language models for domain-specific content creation. The system integrates Llama 3.1-8B-Instant model through Groq API with novel algorithms for Domain-Constrained Keyword Generation (DCKG) and Domain-aware Model for Keyword enforcement (DMK), delivered through a cyberpunk-themed user interface built with Streamlit. The platform addresses the growing demand for high-quality, keyword-optimized content across various domains including technology, education, finance, and healthcare.
@@ -65,7 +52,7 @@ The primary objectives of this research are:
 1. Design and implement an AI-powered text generation platform for long-form content (750-2000 words)
 2. Develop domain-agnostic keyword extraction algorithm (DCKG) that works across any topic
 3. Create keyword enforcement mechanism (DMK) ensuring guaranteed keyword presence
-4. Achieve response times under 10 seconds with keyword enforcement accuracy above 85%
+4. Achieve response times under 10 seconds with keyword enforcement accuracy
 5. Implement comprehensive metrics framework for real-time quality assessment
 
 **Secondary Objectives:**
@@ -84,7 +71,6 @@ This research makes the following key contributions:
 - Multi-word phrase detection with intelligent ranking
 - Context-aware scoring considering capitalization and word length
 - No requirement for predefined domain-specific dictionaries
-- Time complexity: O(n log n), Space complexity: O(n)
 
 **2. Enhanced DMK Algorithm**
 - Two-phase keyword enforcement: pre-generation enhancement and post-generation validation
@@ -131,26 +117,6 @@ Natural Language Processing (NLP) has evolved significantly from rule-based syst
 ### 2.2 Large Language Models
 
 Large Language Models have demonstrated remarkable capabilities in various NLP tasks, including text generation, summarization, translation, and question answering.
-
-**Notable Models:**
-
-**GPT Series (OpenAI)**
-- GPT-3: 175 billion parameters
-- GPT-4: Multimodal capabilities
-- Strong few-shot learning abilities
-- Proprietary and expensive for high-volume use
-
-**BERT (Google)**
-- Bidirectional encoding
-- Excellent for understanding tasks
-- Less suitable for long-form generation
-- Requires fine-tuning for specific tasks
-
-**LLaMA (Meta AI)**
-- Open-source foundation models
-- Various sizes: 7B, 13B, 30B, 65B parameters
-- Strong performance with smaller size
-- Community fine-tuning capabilities
 
 **Llama 3.1 (Meta AI)**
 - Latest generation: 8B, 70B, 405B parameter variants
@@ -200,32 +166,6 @@ Keyword extraction is crucial for document summarization, SEO optimization, and 
 
 ### 2.4 Content Generation Systems
 
-**Existing Commercial Platforms:**
-
-**Copy.ai**
-- AI-powered marketing copy generation
-- Template-based approach
-- Limited keyword control (~70% enforcement)
-- Subscription-based pricing
-
-**Jasper**
-- Long-form content creation
-- Multiple content types
-- Some keyword guidance (~75% enforcement)
-- Higher cost for extensive use
-
-**Writesonic**
-- Multi-purpose content generation
-- Article writer feature
-- Basic keyword inclusion
-- Limited metrics visibility
-
-**ChatGPT (OpenAI)**
-- Conversational interface
-- Flexible content generation
-- No built-in keyword enforcement (~60% natural inclusion)
-- Requires manual prompting for keyword inclusion
-
 **Academic Research Systems:**
 
 **Controlled Text Generation (Keskar et al., 2019)**
@@ -251,23 +191,6 @@ This research addresses several gaps in existing systems:
 3. **Domain-Agnostic Design**: No predefined word lists or training required
 4. **Complete Quality Validation**: Density, distribution, and context analysis
 5. **Fast Response Time**: 4.46s vs typical 8-10s in existing systems
-
-### 2.5 User Interface Design for AI Systems
-
-**Principles of AI Interface Design:**
-- Transparency: Show AI decision-making process
-- Control: Allow user customization
-- Feedback: Provide real-time status updates
-- Error handling: Graceful failure messages
-
-**Cyberpunk Aesthetic in UI:**
-- Neon color schemes (#39ff14 green, #ff00cc pink)
-- Futuristic typography (Orbitron, Share Tech Mono)
-- High contrast for readability
-- Glowing effects for visual appeal
-
-**Research on User Engagement:**
-Studies show themed interfaces increase user engagement and satisfaction when aligned with application purpose. The cyberpunk theme reinforces the "futuristic AI" nature of the system.
 
 ---
 
@@ -1198,85 +1121,3 @@ The system's exceptional performance (100% keyword enforcement, 4.46s response t
 Future research can build upon this foundation to enhance semantic understanding, adaptive token allocation, multi-model ensembles, and user personalization. The domain-agnostic approach and modular architecture provide a solid foundation for these enhancements.
 
 This work contributes to the growing field of AI-assisted content creation by providing both theoretical insights and practical implementation strategies that can benefit researchers, developers, and content creators alike.
-
----
-
-## ACKNOWLEDGMENTS
-
-I express sincere gratitude to:
-
-- **Mr. Sudhanshu** (PW Skills) for mentorship and guidance
-- **Physics Wallah Pvt. Ltd.** for internship opportunity
-- **Guru Gobind Singh Indraprastha University** for academic support
-- **Groq** for providing high-speed LLM inference API
-- **Meta AI** for open-source Llama 3.1 model
-- **Open-source community** for Streamlit, FastAPI, and supporting libraries
-
----
-
-## REFERENCES
-
-1. Vaswani, A., et al. (2017). "Attention is All You Need." *Advances in Neural Information Processing Systems*, 30.
-
-2. Devlin, J., et al. (2018). "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding." *arXiv preprint arXiv:1810.04805*.
-
-3. Brown, T., et al. (2020). "Language Models are Few-Shot Learners." *Advances in Neural Information Processing Systems*, 33, 1877-1901.
-
-4. Touvron, H., et al. (2023). "Llama 2: Open Foundation and Fine-Tuned Chat Models." *arXiv preprint arXiv:2307.09288*.
-
-5. Touvron, H., et al. (2024). "The Llama 3 Herd of Models." *arXiv preprint arXiv:2407.21783*.
-
-6. Rose, S., et al. (2010). "Automatic Keyword Extraction from Individual Documents." *Text Mining: Applications and Theory*, 1-20.
-
-7. Mihalcea, R., & Tarau, P. (2004). "TextRank: Bringing Order into Text." *Proceedings of EMNLP*, 404-411.
-
-8. Grootendorst, M. (2020). "KeyBERT: Minimal keyword extraction with BERT." *GitHub repository*.
-
-9. Keskar, N. S., et al. (2019). "CTRL: A Conditional Transformer Language Model for Controllable Generation." *arXiv preprint arXiv:1909.05858*.
-
-10. Dathathri, S., et al. (2020). "Plug and Play Language Models: A Simple Approach to Controlled Text Generation." *ICLR 2020*.
-
-11. Krause, B., et al. (2021). "GeDi: Generative Discriminator Guided Sequence Generation." *EMNLP 2021*.
-
-12. Jurafsky, D., & Martin, J. H. (2023). *Speech and Language Processing* (3rd ed.). Pearson.
-
-13. Goodfellow, I., Bengio, Y., & Courville, A. (2016). *Deep Learning*. MIT Press.
-
-14. Groq Inc. (2024). "Groq API Documentation." Retrieved from https://groq.com/
-
-15. Streamlit Inc. (2024). "Streamlit Documentation." Retrieved from https://docs.streamlit.io/
-
-16. FastAPI. (2024). "FastAPI Documentation." Retrieved from https://fastapi.tiangolo.com/
-
-17. Gartner. (2024). "Market Guide for AI-Powered Content Generation Tools."
-
-18. McKinsey & Company. (2023). "The Economic Potential of Generative AI: The Next Productivity Frontier."
-
-19. Holtzman, A., et al. (2020). "The Curious Case of Neural Text Degeneration." *ICLR 2020*.
-
-20. Zhang, J., et al. (2023). "A Survey on Controllable Text Generation." *ACM Computing Surveys*.
-
----
-
-**END OF RESEARCH PAPER**
-
----
-
-**Author Information:**
-
-**Sanskriti Rai**  
-B.Tech in Artificial Intelligence and Data Science  
-University School of Automation and Robotics  
-Guru Gobind Singh Indraprastha University  
-Email: [student email]  
-Enrollment No.: 07919051922  
-
-**Supervisor:**  
-**Mr. Sudhanshu**  
-Mentor, PW Skills  
-Physics Wallah Pvt. Ltd.  
-Email: [supervisor email]
-
-**Publication Date:** November 6, 2025  
-**Version:** 1.0  
-**Status:** Submitted for Review
