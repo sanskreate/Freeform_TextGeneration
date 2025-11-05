@@ -598,7 +598,7 @@ def final_report(path="generation_logs.json"):
 **Overall Performance Metrics (3 Generations):**
 
 | Metric | Value | Achievement |
-|--------|-------|--------|-------------|
+|--------|-------|-------------|
 | **Response Time (Average)** | 4.46s | <10s |
 | **Keyword Accuracy (DCKG)** | 70.0% | Better than average |
 | **Keyword Enforcement (DMK)** | 100.0% | Perfect score |
