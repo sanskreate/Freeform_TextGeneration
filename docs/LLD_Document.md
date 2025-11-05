@@ -1327,53 +1327,6 @@ occurrences = len(pattern.findall(text_lower))
 
 ---
 
-## 6. TESTING SPECIFICATIONS
-
-### 6.1 Unit Tests
-
-```python
-# test_dckg.py
-def test_keyword_extraction():
-    prompt = "Artificial intelligence is transforming healthcare"
-    keywords = generate_keywords(prompt, "technology", top_n=5)
-    assert len(keywords) == 5
-    assert "artificial" in keywords or "intelligence" in keywords
-
-# test_dmk.py
-def test_prompt_enhancement():
-    prompt = "Test prompt"
-    keywords = ["keyword1", "keyword2"]
-    enhanced = apply_dmk_loss(prompt, keywords)
-    assert "keyword1" in enhanced
-    assert "keyword2" in enhanced
-
-# test_metrics.py
-def test_keyword_accuracy():
-    predicted = ["word1", "word2", "word3"]
-    reference = ["word1", "word2", "word4"]
-    accuracy = keyword_accuracy(predicted, reference)
-    assert accuracy == 66.67
-```
-
-### 6.2 Integration Tests
-
-```python
-# test_api.py
-def test_generate_endpoint():
-    payload = {
-        "prompt": "Test prompt",
-        "max_words": 750,
-        "domain": "test"
-    }
-    response = requests.post("http://localhost:8000/generate", json=payload)
-    assert response.status_code == 200
-    data = response.json()
-    assert "text" in data
-    assert "keywords" in data
-```
-
----
-
 ## 7. DEPLOYMENT PROCEDURES
 
 ### 7.1 Environment Setup
