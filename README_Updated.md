@@ -57,7 +57,7 @@
 
 2. **Advanced Text Generation**
    - Powered by Llama 3.1-8B-Instant (Meta's latest model)
-   - Customizable word count: 100-2000 words
+   - Customizable word count: 750-2000 words
    - Domain-specific content across technology, education, finance, healthcare, and more
    - Natural language integration of required keywords
 
