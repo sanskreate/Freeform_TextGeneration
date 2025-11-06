@@ -139,9 +139,8 @@ The system employs a **Three-Tier Architecture** with clear separation of concer
 │   Streamlit    │  │    FastAPI      │  │   Groq API     │
 │   Frontend     │◄─┤    Backend      │◄─┤   (Llama 3.1)  │
 │                │  │                 │  │                │
-│ • UI/UX        │  │ • DCKG/DMK      │  │ • Text Gen     │
-│ • Validation   │  │ • Orchestration │  │ • AI Model     │
-│ • Display      │  │ • Metrics       │  │                │
+│ • Display      │  │ • DCKG/DMK      │  │ • Text Gen     │
+│ • Validation   │  │ • Metrics       │  │ • AI Model     │
 └────────────────┘  └─────────┬───────┘  └────────────────┘
                               │
                     ┌─────────▼────────┐
