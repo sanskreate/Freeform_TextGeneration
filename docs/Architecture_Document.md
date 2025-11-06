@@ -57,7 +57,7 @@ The system employs a **Three-Tier Architecture** with clear separation of concer
 │  │                FastAPI Backend Server                     │  │
 │  │  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐        │  │
 │  │  │   Request   │  │  Business   │  │  Response   │        │  │
-│  │  │  Handler    │→│   Logic     │→│  Formatter  │          │  │
+│  │  │  Handler    │→ │   Logic     │→│  Formatter   │        │  │
 │  │  └─────────────┘  └─────────────┘  └─────────────┘        │  │
 │  │  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐        │  │
 │  │  │    DCKG     │  │     DMK     │  │   Metrics   │        │  │
